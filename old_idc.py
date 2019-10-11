@@ -560,6 +560,10 @@ def SegAlign(ea, alignment): return idc.set_segm_attr(ea, SEGATTR_ALIGN, alignme
 
 def SegComb(ea, comb): return idc.set_segm_attr(ea, SEGATTR_COMB, comb)
 
+def SegStart(ea): return idc.get_segm_start(ea)
+
+def SegEnd(ea): return idc.get_segm_end(ea)
+
 def MakeComm(ea, cmt): return idc.set_cmt(ea, cmt, 0)
 
 def MakeRptCmt(ea, cmt): return idc.set_cmt(ea, cmt, 1)
@@ -729,3 +733,5 @@ GetOpnd = idc.print_operand
 patch_long = ida_bytes.patch_dword
 
 def python_on(): return ida_loader.load_and_run_plugin("idapython", 3)
+
+get_switch_info_ex = ida_nalt.get_switch_info
